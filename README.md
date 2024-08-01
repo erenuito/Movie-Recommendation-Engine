@@ -11,6 +11,8 @@ The main dataset is "Netflix_Data", formed by combining the "Netflix_Dataset_Rat
 
 Both datasets are merged on the `Movie_ID` column.
 
+The combined database consists of millions of ratings given to 294 movies by different users.
+
 ## Libraries Used
 
 - Pandas
@@ -28,6 +30,9 @@ training_data, test_data = df.randomSplit([0.7, 0.3], seed=5064)
 ```
 ## Model Training
 We used `ALS` (Alternating Least Squares) for training the recommendation model, with the last 4 digits of my student number as the seed. The parameters of ALS were adjusted and the algorithm was re-run with different values for rank (10, 50, 200), iteration (10, 50, 200), and lambda (0.01, 0.1). This resulted in 18 different models being created using the specified rank-iteration-lambda combinations.
+
+![image](https://github.com/user-attachments/assets/25469978-3287-437a-a1e4-5297c844cc18)
+
 
 
 ## Parameters Explanation
@@ -51,7 +56,11 @@ RMSE: 1.2946339724178337
 Rank: 50
 MaxIter: 20
 RegParam: 0.1
-Comparison of Predictions with Actual Values
+
+
+##Comparison of Predictions with Actual Values <br>
+![image](https://github.com/user-attachments/assets/8018c2f9-c4e1-4dd1-b25c-404c168b5987)
+
 
 
 ## Cosine Similarity Method

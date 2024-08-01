@@ -32,7 +32,9 @@ We used `ALS` (Alternating Least Squares) for training the recommendation model,
 
 ## Parameters Explanation
 `Rank:` Determines the number of columns in the output matrix, controlling the dimension of the factor matrices.
+
 `Iteration:` The number of times the optimization loop of the ALS algorithm will run. Each iteration updates the factor matrices to reduce the error.
+
 `Lambda:` A regularization parameter to control overfitting, governing the amount of regularization applied to the model.
 
 

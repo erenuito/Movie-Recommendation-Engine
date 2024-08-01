@@ -1,23 +1,31 @@
 # Movie Recommendation Engine
- 
-This is a project to recommend movies to users that they might like.
 
- Datasets: 
- The main dataset is "Netflix_Data", which is formed by combining the "Netflix_Dataset_Rating" and "Netflix_Dataset_Movie2" datasets. 
- "Netflix_Dataset_Rating" Dataset includes User_ID, Rating and Movie_ID columns.
- "Netflix_Dataset_Movie2" Dataset includes Movie_ID, Year and Name columns.
- Movie_ID is a common columns. We merge these datasets based on the Movie_ID column. 
+This project aims to recommend movies to users based on their preferences using collaborative filtering.
 
- Libraries:
- Pandas
- PySpark
- Matplotlib
- Numpy
- Seaborn
+## Datasets
 
-The dataset is divided into two parts: 70% Train and 30% Test.
+The main dataset is "Netflix_Data", formed by combining the "Netflix_Dataset_Rating" and "Netflix_Dataset_Movie2" datasets.
 
+- **Netflix_Dataset_Rating**: Includes `User_ID`, `Rating`, and `Movie_ID` columns.
+- **Netflix_Dataset_Movie2**: Includes `Movie_ID`, `Year`, and `Name` columns.
+
+Both datasets are merged on the `Movie_ID` column.
+
+## Libraries Used
+
+- Pandas
+- PySpark
+- Matplotlib
+- Numpy
+- Seaborn
+
+## Data Preparation
+
+The dataset is divided into two parts: 70% for training and 30% for testing.
+
+```python
 training_data, test_data = df.randomSplit([0.7, 0.3], seed=5064)
+
 
 Used ALS (Alternating Least Squares) for training recommendation model with last 4 digit of my student number as a “seed”. Also changed the parameters of ALS re-run the algorithm for parameters “rank” (10, 50, 200), “iteration” (10, 50, 200) and “lambda” (0.01, 0.1). This means 18 different model will be created using specified rank-iteration-lambda values.
 

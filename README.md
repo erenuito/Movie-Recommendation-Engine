@@ -74,7 +74,8 @@ Similar Users:
 
 
 
-Recommended Movies for a Specific User
+## Recommended Movies for a Specific User
+
 Finally, 10 movies that the user with the entered User_ID might like are listed.
 
 User_ID: 2031561

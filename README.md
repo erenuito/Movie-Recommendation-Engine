@@ -58,7 +58,9 @@ Comparison of Predictions with Actual Values
 Using the Cosine Similarity method, the 10 most similar users were found based on the movie with Movie_ID 148.
 
 Movie_ID: 148
+
 Similar Users:
+
 (51690, 0.9999999999999998)
 (1417990, 0.9999999999999998)
 (1553750, 0.9999999999999998)
@@ -76,7 +78,9 @@ Recommended Movies for a Specific User
 Finally, 10 movies that the user with the entered User_ID might like are listed.
 
 User_ID: 2031561
+
 Recommended Movies:
+
 Movie ID: 253, Rating: 3.812014102935791
 Movie ID: 197, Rating: 3.7051990032196045
 Movie ID: 165, Rating: 3.5358362197875977

@@ -25,35 +25,50 @@ The dataset is divided into two parts: 70% for training and 30% for testing.
 
 ```python
 training_data, test_data = df.randomSplit([0.7, 0.3], seed=5064)
+```
+Model Training
+We used ALS (Alternating Least Squares) for training the recommendation model, with the last 4 digits of my student number as the seed. The parameters of ALS were adjusted and the algorithm was re-run with different values for rank (10, 50, 200), iteration (10, 50, 200), and lambda (0.01, 0.1). This resulted in 18 different models being created using the specified rank-iteration-lambda combinations.
 
+Parameters Explanation
+Rank: Determines the number of columns in the output matrix, controlling the dimension of the factor matrices.
+Iteration: The number of times the optimization loop of the ALS algorithm will run. Each iteration updates the factor matrices to reduce the error.
+Lambda: A regularization parameter to control overfitting, governing the amount of regularization applied to the model.
+Model Evaluation
+The MSE and RMSE results of each model were extracted. The model with the lowest RMSE was chosen as the best.
 
-Used ALS (Alternating Least Squares) for training recommendation model with last 4 digit of my student number as a “seed”. Also changed the parameters of ALS re-run the algorithm for parameters “rank” (10, 50, 200), “iteration” (10, 50, 200) and “lambda” (0.01, 0.1). This means 18 different model will be created using specified rank-iteration-lambda values.
+MSE (Mean Squared Error): Measures the average squared difference between predicted and true values.
+RMSE (Root Mean Squared Error): The square root of MSE, providing a metric in the same scale as the original target variable.
+The best model is the one with the lowest MSE and RMSE values.
 
-[ALS_67dc3018ec83, ALS_ec2f33f8c1b8, ALS_0b091e615f48, ALS_64d15ae1a5b0, ALS_7f5153eea5c5, ALS_b617f5cf9e55, ALS_63de1ef8b47d, ALS_5a345d2d2c8b, ALS_a550efaba091, ALS_93e42f00a434, ALS_8e7a12d081ed, ALS_dc1a4f3a6a08, ALS_1f11b082512d, ALS_34c4e695f431, ALS_8a6602f6ca42, ALS_225cffd95582, ALS_71492501a4e9, ALS_bff5c48f598b]
-
-Rank: Rank is a fundamental parameter of the ALS algorithm that determines the number of columns in the output matrix. In other words, it controls the dimension of the factor matrices in the ALS model.
-Iteration: Iteration is a parameter that determines the number of times the optimization loop of the ALS algorithm will run. In each iteration, the ALS model updates the factor matrices and aims to reduce the error. 
-Lambda: Lambda is a regularization parameter in the ALS algorithm, used to control overfitting. The lambda value governs the amount of regularization applied to the model.
-
-The MSE and RMSE results of each model were extracted and the model with the lowest RMSE was decided to be the best.
-MSE is a metric used to measure the average squared difference between the predicted values and the true values in a regression problem.
-RMSE is the square root of MSE, and it provides a metric that is in the same scale as the original target variable.
-The MSE and RMSE values represent the error rate. The best model is the one with the lowest values of these metrics. Therefore, based on this criterion.
-Results:
-The best parameter combination:
+Results
+Best Parameter Combination
 RMSE: 1.2946339724178337
-Rank: 50, MaxIter: 20, RegParam: 0.1
+Rank: 50
+MaxIter: 20
+RegParam: 0.1
+Comparison of Predictions with Actual Values
 
-The predictions of the best model were compared with the actual values.
-![image](https://github.com/user-attachments/assets/4389caac-f309-44d0-a4b3-e16c05f6c3e7)
 
-Using the CosineSimilarity method, the 10 most similar users were found based on the movie with Movie_ID 148.
-Movie_ID : 148
-[(51690, 0.9999999999999998), (1417990, 0.9999999999999998), (1553750, 0.9999999999999998), (508111, 0.9999999999999998), (748251, 0.9999999999999998), (1919701, 0.9999999999999998), (2191211, 0.9999999999999998), (2253871, 0.9999999999999998), (2287271, 0.9999999999999998), (732492, 0.9999999999999998)]
+Cosine Similarity Method
+Using the Cosine Similarity method, the 10 most similar users were found based on the movie with Movie_ID 148.
 
+Movie_ID: 148
+Similar Users:
+(51690, 0.9999999999999998)
+(1417990, 0.9999999999999998)
+(1553750, 0.9999999999999998)
+(508111, 0.9999999999999998)
+(748251, 0.9999999999999998)
+(1919701, 0.9999999999999998)
+(2191211, 0.9999999999999998)
+(2253871, 0.9999999999999998)
+(2287271, 0.9999999999999998)
+(732492, 0.9999999999999998)
+Recommended Movies for a Specific User
 Finally, 10 movies that the user with the entered User_ID might like are listed.
-User_ID : 2031561
 
+User_ID: 2031561
+Recommended Movies:
 Movie ID: 253, Rating: 3.812014102935791
 Movie ID: 197, Rating: 3.7051990032196045
 Movie ID: 165, Rating: 3.5358362197875977
@@ -64,8 +79,10 @@ Movie ID: 241, Rating: 3.4208264350891113
 Movie ID: 76, Rating: 3.410930871963501
 Movie ID: 152, Rating: 3.396789073944092
 Movie ID: 143, Rating: 3.3912668228149414
+Summary
+This project showcases the creation of a movie recommendation engine using collaborative filtering techniques with PySpark's ALS algorithm. The dataset, model training process, parameter tuning, and evaluation metrics are detailed. The best model was selected based on RMSE, and recommendations were made using cosine similarity.
 
-The last two operations are the exact opposite of each other.
+For a detailed view of the dataset summary, visualizations, and code, please browse the provided Jupyter Notebook.
 
-You can browse the iPynb file to see and interpret the summary of the dataset, visualizations and examine the Codes in more detail :)
-You can contact me anytime :=)
+Contact
+Feel free to reach out to me anytime for further questions or discussions!
